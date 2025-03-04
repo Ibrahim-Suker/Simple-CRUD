@@ -1,0 +1,34 @@
+﻿@model Simple_CRUD.Models.Student
+
+@{
+    ViewData["Title"] = "Edit Student";
+}
+
+<h2 class="text-warning">✏️ Edit Student</h2>
+
+<form asp-action="Edit" method="post" class="border p-4 shadow rounded">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label">Student Name</label>
+        <input asp-for="Name" class="form-control" required />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label">Email</label>
+        <input asp-for="Email" type="email" class="form-control" required />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Subscribed" class="form-label">Subscribed</label>
+        <select asp-for="Subscribed" class="form-select">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-warning">Update</button>
+    <a asp-action="List" class="btn btn-secondary">Cancel</a>
+</form>
